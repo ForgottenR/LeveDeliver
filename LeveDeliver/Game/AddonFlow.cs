@@ -273,7 +273,7 @@ public unsafe class AddonFlow : IDisposable
                 if (nameValue.String.Value == null)
                     continue;
                 var name = Dalamud.Memory.MemoryHelper.ReadSeStringNullTerminated((nint)nameValue.String.Value).ToString();
-                if (string.Equals(name, this.leve!.Name, StringComparison.OrdinalIgnoreCase))
+                if (LeveResolver.Matches(this.db, name, this.leve!))
                 {
                     this.Verbose($"Selecting leve card {i} in GuildLeve.");
                     Callback.Fire(&guildLeve->AtkUnitBase, true, 13, i, (int)this.leve.Id);
@@ -410,7 +410,7 @@ public unsafe class AddonFlow : IDisposable
             for (var i = 1; i < 18; i++)
             {
                 var text = AddonHelpers.GetNodeText(addon, [2, i, 4]);
-                if (string.Equals(text, this.leve!.Name, StringComparison.OrdinalIgnoreCase))
+                if (LeveResolver.Matches(this.db, text, this.leve!))
                 {
                     this.Verbose($"Selecting turn-in entry {i - 1}.");
                     Callback.Fire(addon, true, i - 1);

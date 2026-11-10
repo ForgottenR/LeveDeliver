@@ -11860,6 +11860,20 @@
  },
  {
   "id": 1754,
+  "name": "All-night Crafting",
+  "itemId": 44169,
+  "itemName": "Cunning Craftsman's Tisane",
+  "quantity": 3,
+  "job": "ALC",
+  "levelRequired": 96,
+  "levemeteID": 1048390,
+  "levemeteName": "Malihali",
+  "targetID": 1048391,
+  "targetName": "Ponawme",
+  "triple": false
+ },
+ {
+  "id": 1755,
   "name": "Something Salty and Ceremonial",
   "itemId": 42306,
   "itemName": "Gomphotherium Codex",
@@ -11874,6 +11888,20 @@
  },
  {
   "id": 1756,
+  "name": "Tome for Tradition",
+  "itemId": 42459,
+  "itemName": "Book of Ra'Kaznar",
+  "quantity": 1,
+  "job": "ALC",
+  "levelRequired": 98,
+  "levemeteID": 1048390,
+  "levemeteName": "Malihali",
+  "targetID": 1048391,
+  "targetName": "Ponawme",
+  "triple": false
+ },
+ {
+  "id": 1757,
   "name": "Remedy for Reason",
   "itemId": 44161,
   "itemName": "Grade 1 Gemdraught of Mind",
