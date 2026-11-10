@@ -405,15 +405,16 @@ public unsafe class AddonFlow : IDisposable
             if (!this.Throttle())
                 return;
 
-            // Find the entry matching the leve name (ChilledLeves GetCallback: nodes 2/i/4, callback i-1).
-            var addon = AddonHelpers.GetAddon("SelectIconString");
-            for (var i = 1; i < 18; i++)
+            var addon = new ECommons.UIHelpers.AddonMasterImplementations.AddonMaster.SelectIconString(AddonHelpers.GetAddon("SelectIconString"));
+            var entries = addon.Entries;
+            for (var i = 0; i < entries.Length; i++)
             {
-                var text = AddonHelpers.GetNodeText(addon, [2, i, 4]);
-                if (LeveResolver.Matches(this.db, text, this.leve!))
+                var entry = entries[i];
+                this.Verbose($"Turn-in entry {i} is \"{entry.Text}\".");
+                if (LeveResolver.Matches(this.db, entry.Text, this.leve!))
                 {
-                    this.Verbose($"Selecting turn-in entry {i - 1}.");
-                    Callback.Fire(addon, true, i - 1);
+                    this.Verbose($"Selecting turn-in entry {i}.");
+                    entry.Select();
                     return;
                 }
             }
